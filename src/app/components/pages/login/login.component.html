@@ -1,0 +1,17 @@
+<mat-card class="login-parent">
+    <p class="bigTitle">
+        {{LOGIN_TEXT}}
+    </p>
+    <form [formGroup]="loginForm" (ngSubmit)="submit()" class="login-form">
+        <mat-form-field class="input-field">
+            <mat-label>Username</mat-label>
+            <input matInput value="Google" formControlName="username">
+        </mat-form-field>
+        <mat-form-field class="input-field">
+            <mat-label>Password</mat-label>
+            <input matInput value="Google" formControlName="password" [type]="hidePassword ? 'password' : 'text'">
+            <mat-icon matSuffix (click)="togglePasswordDisplay()">{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </mat-form-field>
+        <button mat-raised-button color="primary" type="submit">CONNECT</button>
+    </form>
+</mat-card>

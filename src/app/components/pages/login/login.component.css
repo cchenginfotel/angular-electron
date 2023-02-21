@@ -1,0 +1,30 @@
+:host {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.login-parent {
+    width: 80%;
+    max-width: 500px;
+    min-width: 300px;
+    display: flex;
+    align-items: center;
+    padding: 25px;
+}
+
+.login-form {
+    display: flex; 
+    justify-content: center;
+    flex-direction: column;
+    width: 80%;
+    align-items: center;
+    padding: 10px;
+}
+
+.input-field {
+    max-width: 300px;
+    width: 80%;
+    min-width: 200px;
+}

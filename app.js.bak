@@ -1,0 +1,47 @@
+const {app, BrowserWindow} = require('electron')
+    const url = require("url");
+    const path = require("path"); // to work with path
+
+    let mainWindow;
+
+    // create the application window
+    function createWindow () {
+      mainWindow = new BrowserWindow({
+        width: 800,
+        height: 600,
+        backgroundColor: '#fff',
+        webPreferences: {
+          nodeIntegration: true
+        }
+      })
+
+      // select which file to open (don't select files located in /src directory)
+      mainWindow.loadURL(
+        url.format({
+          pathname: path.join(__dirname, `/dist/electron-app/index.html`),
+          protocol: "file:",
+          slashes: true
+        })
+      );
+      // Open the DevTools on the main window
+      mainWindow.webContents.openDevTools()
+
+      // on closing the window
+      mainWindow.on('closed', function () {
+        mainWindow = null
+      })
+    }
+
+    // once the app is ready, create the window
+    app.on('ready', createWindow)
+
+    app.on('window-all-closed', function () {
+
+        // macOs specific closing process
+        if (process.platform !== 'darwin') app.quit()
+    })
+
+    app.on('activate', function () {
+        // macOs specific => create a window if app is active but window is closed
+        if (mainWindow === null) createWindow()
+    })
