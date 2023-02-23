@@ -14,13 +14,13 @@ export class LoginComponent implements OnInit{
   _username: FormControl
   _password: FormControl
   hidePassword: boolean
-  router: Router;
-  route: ActivatedRoute;
   LOGIN_TEXT: string = "Login to CanReg";
 
   constructor(
     private _formBuilder: FormBuilder,
-    private authService: AuthService
+    private authService: AuthService,
+    private route: ActivatedRoute,
+    private router: Router
   ) {}
 
   

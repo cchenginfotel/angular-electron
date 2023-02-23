@@ -8,10 +8,13 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class HeaderComponent {
 
-  router: Router;
-  route: ActivatedRoute;
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router
+    ) {}
 
   public goTo(targetLocation: string) {
+    console.log("goto: "+targetLocation);
     switch (targetLocation) {
       case "loginPage":
         this.router.navigate(["login"], { relativeTo: this.route });
